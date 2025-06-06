@@ -123,13 +123,15 @@ export default function Home() {
                 type="password"
                 placeholder="Password"
                 className={`w-full pl-12 pr-4 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent text-gray-700 placeholder-gray-400 ${
-                  !state?.success && state?.message
+                  state?.errors?.password
                     ? "border-red-400 focus:ring-red-400"
                     : "border-gray-200 focus:ring-red-400"
                 }`}
               />
-              {!state?.success && state?.message && (
-                <p className="mt-2 text-sm text-red-500">{state.message}</p>
+              {state?.errors?.password && (
+                <p className="mt-2 text-sm text-red-500">
+                  {state.errors.password}
+                </p>
               )}
             </div>
 
